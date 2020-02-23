@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="connect4">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/java-2019-12/Eclipse.app/Contents/Eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="13"/>
+    <property name="source" value="13"/>
+    <path id="javafx.userclasspath">
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx-swt.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.base.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.controls.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.fxml.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.graphics.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.media.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.swing.jar"/>
+        <pathelement location="../../eclipse/javafx-sdk-13.0.2/lib/javafx.web.jar"/>
+    </path>
+    <path id="JavaFX SDK.libraryclasspath"/>
+    <path id="connect4.classpath">
+        <pathelement location="bin"/>
+        <path refid="javafx.userclasspath"/>
+        <path refid="JavaFX SDK.libraryclasspath"/>
+    </path>
+    <path id="run.Connect4Client.classpath">
+        <path refid="connect4.classpath"/>
+        <path refid="javafx.userclasspath"/>
+        <path refid="JavaFX SDK.libraryclasspath"/>
+    </path>
+    <path id="run.Connect4Gui.classpath">
+        <path refid="connect4.classpath"/>
+        <path refid="javafx.userclasspath"/>
+        <path refid="JavaFX SDK.libraryclasspath"/>
+    </path>
+    <path id="run.Connect4Server.classpath">
+        <path refid="connect4.classpath"/>
+        <path refid="javafx.userclasspath"/>
+        <path refid="JavaFX SDK.libraryclasspath"/>
+    </path>
+    <path id="run.Connect4 (1).classpath">
+        <path refid="connect4.classpath"/>
+        <path refid="javafx.userclasspath"/>
+        <path refid="JavaFX SDK.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="connect4.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Connect4Client">
+        <java classname="application.Connect4Client" failonerror="true" fork="yes">
+            <classpath refid="run.Connect4Client.classpath"/>
+        </java>
+    </target>
+    <target name="Connect4Gui">
+        <java classname="application.Connect4Gui" failonerror="true" fork="yes">
+            <jvmarg line="--module-path ~/eclipse/javafx-sdk-13.0.2/lib --add-modules=javafx.controls"/>
+            <classpath refid="run.Connect4Gui.classpath"/>
+        </java>
+    </target>
+    <target name="Connect4Server">
+        <java classname="application.Connect4Server" failonerror="true" fork="yes">
+            <classpath refid="run.Connect4Server.classpath"/>
+        </java>
+    </target>
+    <target name="Connect4 (1)">
+        <java classname="application.Connect4" failonerror="true" fork="yes">
+            <classpath refid="run.Connect4 (1).classpath"/>
+        </java>
+    </target>
+</project>
