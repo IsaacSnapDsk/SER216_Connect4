@@ -1,6 +1,6 @@
 module connect4 {
-	requires javafx.fxml;
-	requires javafx.controls;
+//	requires javafx.fxml;
+//	requires javafx.controls;
 	
-	opens application;
+//	opens application;
 }

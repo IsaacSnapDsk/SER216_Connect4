@@ -2,7 +2,7 @@ package application;
 
 import java.util.Scanner;
 
-import javafx.application.Application;
+//import javafx.application.Application;
 
 import java.util.InputMismatchException;
 
@@ -16,7 +16,7 @@ import java.util.InputMismatchException;
  */
 
 public class Connect4 {
-	Connect4Gui mConnect4Gui;
+//	Connect4Gui mConnect4Gui;
 	Connect4TextConsole mConnect4TextConsole;
 	
 	private static Connect4Client client;
@@ -89,12 +89,12 @@ public class Connect4 {
 			break;
 		case 'g':
 			System.out.println("You have picked the GUI version.");
-			try {
-				Application.launch(Connect4Gui.class);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			pChoice = mConnect4Gui.playstyle();
+//			try {
+//				Application.launch(Connect4Gui.class);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			pChoice = mConnect4Gui.playstyle();
 			break;
 		}
 		
@@ -201,7 +201,7 @@ public class Connect4 {
 
 		if(this.checkWin()) {
 			this.m_winner = getTurn();
-			this.mConnect4Gui.displayEnd("Player "+getTurn()+" has won!");
+//			this.mConnect4Gui.displayEnd("Player "+getTurn()+" has won!");
 		}
 		else {
 			if(this.checkFull()) {
